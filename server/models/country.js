@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
       recovered: DataTypes.INTEGER
     },
     {
-      sequelize
+      sequelize,tableName:'Countries'
     }
   );
   Country.associate = function(models) {
     // associations can be defined here
-    Country.hasMany(models.Report);
+    Country.hasMany(models.Report,{foreignKey:'CountryId'});
   };
   return Country;
 };
