@@ -44,7 +44,7 @@ class AppController{
     static addReports(req,res,next){
         let obj = {
             report : req.body.report,
-            CountryId : req.body.country,
+            CountryId : req.body.countryid,
             UserId : req.userData.id 
         }
         Report.create(obj)
@@ -57,10 +57,10 @@ class AppController{
     }
 
     static delete(req,res,next){
-        let params = req.params.id
-        Report.findOne({where:{id:params}})
+        let param = req.params.id
+        Report.findOne({where:{id:param}})
         .then(result=>{
-            return Report.destroy({where:{id:params}})
+            return Report.destroy({where:{id:param}})
             .then(data=>{
                 res.status(200).json({result,msg:'succesfully deleted'})
             })

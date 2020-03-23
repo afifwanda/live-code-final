@@ -7,7 +7,7 @@ router.post('/login',controller.login)
 router.get('/countries',authentication,controller.getCountries)
 router.get('/reports',authentication,controller.getReports)
 router.post('/reports',authentication,controller.addReports)
-router.delete('/reports:id',authentication,controller.delete)
+router.delete('/reports/:id',authentication,controller.delete)
 
 
 module.exports = router
